@@ -344,7 +344,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 **Shubham Singh**  
 IIT Madras BS in Data Science | Kolkata, India
 
-- 📧 Email: shubhamcric30@gmail.com
+- 📧 Email: 23f2005282@ds.study.iitm.ac.in
 - 💼 LinkedIn: [linkedin.com/in/shubham-singh-50a90a253](https://www.linkedin.com/in/shubham-singh-50a90a253)
 - 🐱 GitHub: [github.com/Shubham30000](https://github.com/Shubham30000)
 
