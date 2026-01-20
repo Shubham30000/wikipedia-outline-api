@@ -6,8 +6,32 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**🌐 Live Demo:** [Coming Soon - Deploying on Render]
+**🌐 Live Demo:** https://wikipedia-outline-api-2.onrender.com
 
+**Try it now:**
+- API Docs: https://wikipedia-outline-api-2.onrender.com/docs
+- Example: https://wikipedia-outline-api-2.onrender.com/api/outline?country=India
+```
+
+---
+
+### **2. Test Your Live API Right Now**
+
+Open these links in your browser:
+
+✅ **Interactive Docs:**
+```
+https://wikipedia-outline-api-2.onrender.com/docs
+```
+
+✅ **Test with India:**
+```
+https://wikipedia-outline-api-2.onrender.com/api/outline?country=India
+```
+
+✅ **Test with Japan:**
+```
+https://wikipedia-outline-api-2.onrender.com/api/outline?country=Japan
 ---
 
 ## 📊 Problem Statement
