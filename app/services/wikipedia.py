@@ -2,7 +2,7 @@
 Wikipedia service module.
 Handles fetching and parsing Wikipedia pages.
 """
-from lxml import html
+from bs4 import BeautifulSoup
 from typing import List, Tuple
 from ..core.cache import cached_get
 
@@ -51,26 +51,19 @@ class WikipediaService:
         Returns:
             List of tuples (level, text) where level is 1-6, in order of appearance
         """
-        tree = html.fromstring(html_content)
+        soup = BeautifulSoup(html_content, 'html.parser')
         headings = []
         
-        # Extract ALL headings in document order using XPath
-        # This gets h1, h2, h3, h4, h5, h6 in the order they appear
-        all_headings = tree.xpath('//h1 | //h2 | //h3 | //h4 | //h5 | //h6')
-        
-        for heading in all_headings:
-            # Get the tag name (h1, h2, etc.)
-            tag_name = heading.tag.lower()
-            
-            # Extract the level number (1 from 'h1', 2 from 'h2', etc.)
-            level = int(tag_name[1])
+        # Find all heading tags in document order
+        for heading in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+            # Get the level from tag name (h1 -> 1, h2 -> 2, etc.)
+            level = int(heading.name[1])
             
             # Get text content, stripping whitespace
-            text = heading.text_content().strip()
+            text = heading.get_text(strip=True)
             
-            # Skip empty headings and edit links
+            # Skip empty headings and remove [edit] links
             if text and '[edit]' not in text:
-                # Remove [edit] from text if present
                 text = text.replace('[edit]', '').strip()
                 headings.append((level, text))
         

@@ -168,15 +168,21 @@ wikipedia-outline-api/
 ### Technologies Used
 - **FastAPI** - Web framework (auto-generated OpenAPI docs)
 - **httpx** - Async HTTP client for Wikipedia requests
-- **lxml** - HTML parsing with XPath (faster than BeautifulSoup for structured extraction)
+- **BeautifulSoup4** - HTML parsing (reliable cross-platform deployment)
 - **python-dotenv** - Environment variable management
 - **uvicorn** - ASGI server
+
+### Why BeautifulSoup4 instead of lxml?
+While lxml is faster, BeautifulSoup4 was chosen for:
+- **Better deployment compatibility** across cloud platforms
+- **No compilation required** (pure Python)
+- **Easier setup** for development and testing
+- **Sufficient performance** for single-request use cases (~100-200ms difference)
 
 ### Why These Choices?
 
 | Decision | Reason |
 |----------|--------|
-| **lxml + XPath** | Direct heading extraction without navigating full DOM tree |
 | **File caching** | Simple, no database overhead, works offline after first fetch |
 | **MD5 hashing** | Unique cache keys for URLs, handles special characters |
 | **Plain text response** | Lightweight, easy to parse by downstream tools |
